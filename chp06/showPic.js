@@ -1,10 +1,20 @@
 function showPic(picture) {
+    if (!document.getElementById("placeHolder")) {
+        return false;
+    }
     var source = picture.getAttribute("href");
     var placeholder = document.getElementById("placeHolder");
+    if (placeholder.nodeName != "IMG") {
+        return false;
+    }
     placeholder.setAttribute("src", source);
-    var text = picture.getAttribute("title");
-    var description = document.getElementById("description");
-    description.childNodes[0].nodeValue = text;
+    if (document.getElementById("description")) {
+        var text = picture.getAttribute("title") ? picture.getAttribute("title") : "无标题";
+        var description = document.getElementById("description");
+        if (description.childNodes[0].nodeType === 3) {
+            description.childNodes[0].nodeValue = text;
+        }
+    }
 }
 
 function prepareGallery() {
@@ -21,8 +31,11 @@ function prepareGallery() {
     var picList = gallery.getElementsByTagName("a");
     for (var i = 0; i < picList.length; i++) {
         picList[i].onclick = function () {
-            showPic(this);
-            return false;
+            if (showPic(this)) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }
@@ -32,7 +45,7 @@ function addLoadEvent(func) {
     if (typeof window.onload != 'function') {
         window.onload = func;
     } else {
-        window.onload = function() {
+        window.onload = function () {
             oldOnload();
             func();
         }

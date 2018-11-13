@@ -30,3 +30,12 @@ img {
     display: block;
     clear: both;
 }
+#imageGallery {
+    list-style: none;
+}
+#imageGallery li {
+    display: inline;
+}
+#imageGallery li a img {
+    border:0;
+}
