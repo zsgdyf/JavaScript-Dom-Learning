@@ -23,8 +23,6 @@ li {
     list-style: none;
 }
 img {
-    height: auto;
-    width: auto;
     max-height: 80%;
     max-width: 80%;
     display: block;
