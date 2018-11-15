@@ -31,7 +31,7 @@ function displayAbbreviations() {
         defList.appendChild(defTitle);
         defList.appendChild(defDescription);
     }
-    if (defList.childNodes,length < 1) {
+    if (defList.childNodes.length < 1) {
         return false;
     }
 
