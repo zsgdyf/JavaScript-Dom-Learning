@@ -9,3 +9,12 @@ function addLoadEvent(func) {
         }
     }
 }
+
+function addClass(element, value) {
+    if (!element.className) {
+        element.className = value;
+    } else {
+        newClassName = element.className + " " + value;
+        element.className = newClassName;
+    }
+}
