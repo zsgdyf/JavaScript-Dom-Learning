@@ -1,10 +1,26 @@
 # 《JavaScript DOM 编程艺术》
 
+## chp 01
+
+### JavaScript 简史
+
+## chp 02
+
+### JavaScript 语法
+
+## chp 03
+
+### DOM
+
 ## chp 04
 
 ### 案例研究：JavaScript 图片库
 
 - html、css、JavaScript 的基本使用
+
+## chp 05
+
+### 最佳实践
 
 ## chp 06
 
