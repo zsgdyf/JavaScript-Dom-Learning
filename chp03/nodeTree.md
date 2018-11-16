@@ -20,7 +20,7 @@ html
     |   |---Don't forget to buy this stuff（文本节点）
     |
     |---ul
-    |   |
+        |
         |---li
         |
         |---li
