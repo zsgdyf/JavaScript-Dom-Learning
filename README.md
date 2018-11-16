@@ -6,6 +6,11 @@
 
 ## chp 03 DOM
 
+- 节点
+  - 元素节点："html", "p", "ul", "li" 等
+  - 文本节点
+  - 属性节点
+
 ## chp 04 案例研究：JavaScript 图片库
 
 - html、css、JavaScript 的基本使用
