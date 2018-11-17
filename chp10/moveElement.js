@@ -9,16 +9,20 @@ function moveElement(elementId, finalXpos, finalYpos, interval) {
         return true;
     }
     if (leftPos < finalXpos) {
-        leftPos += 5;
+        var dist = Math.ceil((finalXpos - leftPos) / 5); //向上取整
+        leftPos += dist;
     }
     if (leftPos > finalXpos) {
-        leftPos -= 5;
+        var dist = Math.ceil((leftPos - finalXpos) / 5);
+        leftPos -= dist;
     }
     if (topPos < finalYpos) {
-        topPos++;
+        var dist = Math.ceil((finalYpos - topPos) / 5);
+        topPos += dist;
     }
     if (topPos > finalYpos) {
-        topPos--;
+        var dist = Math.ceil((topPos - finalYpos) / 5);
+        topPos += dist;
     }
     elem.style.left = leftPos + "px";
     elem.style.top = topPos + "px";
