@@ -3,6 +3,12 @@ function moveElement(elementId, finalXpos, finalYpos, interval) {
     if (elem.movement) {
         clearTimeout(elem.movement);
     }
+    if (!elem.style.left) {
+        elem.style.left = "0px";
+    }
+    if (!elem.style.top) {
+        elem.style.top = "0px";
+    }
     var leftPos = parseInt(elem.style.left);
     var topPos = parseInt(elem.style.top);
     if (leftPos == finalXpos && topPos == finalYpos) {
