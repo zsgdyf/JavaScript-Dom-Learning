@@ -54,6 +54,7 @@
 - Ajax
 
   - XMLHttpRequest 对象
+  
   - 跨域请求（Chrome 浏览器默认不支持， Firefox 默认支持）
 
 ## chp 08 充实文档的内容
