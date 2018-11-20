@@ -51,6 +51,11 @@
 
 - 在已有元素前（或后）插入一个新元素
 
+- Ajax
+
+  - XMLHttpRequest 对象
+  - 跨域请求（Chrome 浏览器默认不支持， Firefox 默认支持）
+
 ## chp 08 充实文档的内容
 
 - 使用 DOM 添加文档信息
