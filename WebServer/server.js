@@ -1,27 +1,39 @@
-var http = require("http");
-var fs = require("fs");
-var path = require("path");
+var
+    fs = require('fs'),
+    url = require('url'),
+    path = require('path'),
+    http = require('http');
 
-var fileDir = "D:/JavaScript-Dom-Learning/WebServer";
+// 从命令行参数获取root目录，默认是当前目录:
+var root = path.resolve(process.argv[2] || '.');
 
-http.createServer(function(req, res) {
-    var url = req.url; //输入的 html 文件路径
-    var file = path.join(fileDir, url);
-    console.log(file);
+console.log('Static root dir: ' + root);
 
-    fs.readFile(file,function(err, data) {
-        if (err) {
-            console.error();
-            res.end();
+// 创建服务器:
+var server = http.createServer(function (request, response) {
+    // 获得URL的path，类似 '/css/bootstrap.css':
+    var pathname = url.parse(request.url).pathname;
+    // 获得对应的本地文件路径，类似 '/srv/www/css/bootstrap.css':
+    var filepath = path.join(root, pathname);
+    // 获取文件状态:
+    fs.stat(filepath, function (err, stats) {
+        if (!err && stats.isFile()) {
+            // 没有出错并且文件存在:
+            console.log('200 ' + request.url);
+            // 发送200响应:
+            response.writeHead(200);
+            // 将文件流导向response:
+            fs.createReadStream(filepath).pipe(response);
         } else {
-            res.writeHeader(200, {
-                "content-type": "text/html", 
-                "charset": "utf-8"
-            });
-            res.write("HelloWorld!")
-            res.write(data);
-            res.end();
+            // 出错了或者文件不存在:
+            console.log('404 ' + request.url);
+            // 发送404响应:
+            response.writeHead(404);
+            response.end('404 Not Found');
         }
     });
-}).listen(8888);
-console.log("Success!");
+});
+
+server.listen(8888);
+
+console.log('Server is running at http://127.0.0.1:8080/');
