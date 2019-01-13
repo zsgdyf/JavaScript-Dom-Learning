@@ -16,17 +16,22 @@ function prepareSlideshow() {
     //preview.style.position = "absolute";
     //preview.style.left = "0px";
     //preview.style.top = "0px";
+    var h1 = document.getElementsByTagName("h1");
+    h1[0].onmouseover = function () {
+        moveElement("preview", 0, 0, 10);
+    }
+
     var list = document.getElementById("linklist");
     insertAfter(slideshow, list);
 
     var links = list.getElementsByTagName("a");
-    links[0].onmouseover = function() {
+    links[0].onmouseover = function () {
         moveElement("preview", -384, 0, 10);
     }
-    links[1].onmouseover = function() {
+    links[1].onmouseover = function () {
         moveElement("preview", -768, 0, 10); //384 * 2 = 768
     }
-    links[2].onmouseover = function() {
+    links[2].onmouseover = function () {
         moveElement("preview", -1152, 0, 10); //384 * 3 = 1152
     }
 }
